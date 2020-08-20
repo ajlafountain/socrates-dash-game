@@ -12,7 +12,7 @@
     cd build_linux && make && cd .. &&
     echo "Success building linux!" || echo "Failure building linux!"
 }
-[ 0 = 1 ] && {
+[ 0 = 0 ] && {
     [ -d build_windows ] && rm -r build_windows
     cmake -DTO_WINDOWS=true -Wno-dev -B build_windows -S . && 
     cd build_windows && make &&
