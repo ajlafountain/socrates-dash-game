@@ -21,7 +21,7 @@ if(${TO_WINDOWS})
     set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 endif()
 
-project(CrApp)
+project("socrates-dash-game")
 
 file(GLOB_RECURSE MY_SOURCE_FILES CONFIGURE_DEPENDS 
     source/*.cpp source/*.h)
@@ -29,15 +29,15 @@ add_executable(${PROJECT_NAME} ${MY_SOURCE_FILES})
 
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
-#find_package(SDL2_ttf REQUIRED)
-#find_package(SDL2_mixer REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_mixer REQUIRED)
 find_package(SQLite3 REQUIRED)
 
 if (CMAKE_SYSTEM_NAME MATCHES Windows)
     target_link_libraries(${PROJECT_NAME} PUBLIC 
         -static-libgcc -static-libstdc++ 
-        SQLite::SQLite3 SDL2::Main SDL2::Image)
+        SQLite::SQLite3 SDL2::Main SDL2::Image SDL2::TTF SDL2::Mixer)
 elseif(CMAKE_SYSTEM_NAME MATCHES Linux)
     target_link_libraries(${PROJECT_NAME} PUBLIC 
-    sqlite3 SDL2::Main SDL2::Image)
+    sqlite3 SDL2::Main SDL2::Image SDL2::TTF SDL2::Mixer)
 endif()
