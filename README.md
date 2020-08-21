@@ -1,8 +1,8 @@
-# CrApp
-A base for cross platform C++ application development using SDL2 and SQLite3
+# Socrates (Another infinite dash game)
+A small game based on my cat and meant to run on a bartop arcade machine
 
 # Note
-The prerequisite libraries are expected to be installed for both your linux distribution and whatever your mingw roots are.
+This is based on my CrApp (https://github.com/ajlafountain/CrApp) application base
 
 # Building and Packing
 * build.sh - will build both the linux and windows builds in their own directories 
